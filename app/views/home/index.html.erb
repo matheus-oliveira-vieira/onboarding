@@ -1,0 +1,6 @@
+<h1>Bem Vindo a Lista de Países</h1>
+<% @countries.each do |country| %>
+  <ul>
+    <li> <%= country.name %> - <%= country.continent %> </li>
+  </ul>
+<%end%>

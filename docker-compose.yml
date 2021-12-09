@@ -6,6 +6,8 @@ services:
       - .:/opt/app
     ports: 
       - 3000:3000
+    networks:
+      - onboarding-rebase
     tty: true
     stdin_open: true
     environment:
@@ -18,7 +20,12 @@ services:
     image: postgres:13-alpine
     environment:
       POSTGRES_PASSWORD: postgres
+    networks:
+      - onboarding-rebase
     volumes:
       - onboarding_data:/var/lib/postgresql/data
 volumes:
   onboarding_data:
+networks:
+  onboarding-rebase:
+    name: onboarding_rebase
